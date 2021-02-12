@@ -1,0 +1,42 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+public class TextAreaSample implements ActionListener{
+    JFrame frame;
+    JLabel label1, label2;
+    JTextArea area;
+    JButton button;
+
+    TextAreaSample(){
+        frame = new JFrame("TextAreaSample");
+        label1 = new JLabel();
+        label1.setBounds(50, 25, 100, 30);
+        label2 = new JLabel();
+        label2.setBounds(160, 25, 100, 30);
+        area = new JTextArea();
+        area.setBounds(20, 75, 250, 200);
+        button = new JButton("Count Words");
+        button.setBounds(100, 300, 120, 200);
+        button.addActionListener(this);
+        frame.add(label1);
+        frame.add(label2);
+        frame.add(area);
+        frame.add(button);
+        frame.setSize(450, 450);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+        frame.setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e){
+        String text = area.getText();
+        String words[] = text.split("\\s");
+        label1.setText("Words : " + words.length);
+        label2.setText("Characters : " + text.length());
+    }
+
+    public static void main(String[] args){
+        new TextAreaSample();
+    }
+}

@@ -1,0 +1,41 @@
+import java.io.*;
+
+class RemoveArraySample{
+    static int[] arrayRemove(int[] x, int index){
+        if(index < 0 || x.length <= index)
+            return arrayClone(x);
+        else{
+            int[] y = new int[x.length - 1];
+            int i = 0;
+            for(; i < index; i++)
+                y[i] = x[i];
+            for(; i < y.length; i++)
+                y[i] = x[i + 1];
+            return y;
+        }
+    }
+
+    static int[] arrayClone(int[] x){
+        int[] c = new int[x.length];
+        for(int i = 0; i < c.length; i++)
+            c[i] = x[i];
+        return c;
+    }
+
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("Number of Elements : ");
+        int num = Integer.parseInt(br.readLine());
+        int[] a = new int[num];
+        for(int i = 0; i < num; i++){
+            System.out.print("a[" + i + "] : ");
+            a[i] = Integer.parseInt(br.readLine());
+        }
+        System.out.print("Index that is removed : ");
+        int index = Integer.parseInt(br.readLine());
+        int[] b = arrayRemove(a, index);
+        for(int i = 0; i < b.length; i++)
+            System.out.println("b[" + i + "] = " + b[i]);
+    }
+}

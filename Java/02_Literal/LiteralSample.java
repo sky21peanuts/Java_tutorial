@@ -1,0 +1,14 @@
+class LiteralSample{
+    public static void main(String[] args){
+        System.out.println('A');
+        System.out.println("Hello java world!");
+        System.out.println(10);
+        System.out.println(true);
+        System.out.println("print out a tab (\t)");
+        System.out.println("print out a new line (\n)");
+        System.out.println(10);
+        System.out.println(011);
+        System.out.println(0x10);
+        System.out.println(0xb);
+    }
+}

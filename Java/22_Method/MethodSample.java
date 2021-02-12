@@ -1,0 +1,70 @@
+import java.io.*;
+
+class MethodSample{
+    static int sumUp(int m, int n){
+        int sum = 0;
+        for(int i = m; i <= n; i++){
+            sum += i;
+        }
+        return sum;
+    }
+    
+    static Boolean isPrime(int num){
+        for(int i = 2; i < num; i++){
+            if(num % i == 0)
+                return false;
+        }
+        if(num == 1)
+            return false;
+
+        return true;
+    }
+    
+    static void Hello(){
+        System.out.println("Hello!");
+        return;
+    }
+
+    static void decideSign(double a){
+        if(a > 0)
+            System.out.println(a + " is positive number");
+        else if(a < 0)
+            System.out.println(a + " is negative number");
+        else
+            System.out.println(a + " is 0");
+    }
+
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        System.out.println("\"Hello\" Method will be called");
+        Hello();
+        System.out.println("\"Hello\" Method has called");
+        System.out.println();
+
+        
+        decideSign(0.1);
+        decideSign(8);
+
+        double v = -2.4;
+        decideSign(v);
+        decideSign(v + 5);
+        System.out.println();
+
+        
+        System.out.println("Input a positive integer");
+        int n = Integer.parseInt(br.readLine());
+
+        if(isPrime(n))
+            System.out.println("It\'s a prime");
+        else
+            System.out.println("It\'s not a prime");
+
+        System.out.println();
+
+
+        System.out.println("The sum from 1 to 10 is " + sumUp(1, 10));
+        System.out.println("The sum from -2 to 4 is " + sumUp(-2, 4));
+        System.out.println("The sum from -5 to 2 is " + sumUp(-5, 2));
+    }
+}
